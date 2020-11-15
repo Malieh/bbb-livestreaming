@@ -26,7 +26,7 @@ var appRouter = function (app) {
 
                     console.log(rtmpUrl)
                    
-                    exec("node /home/ubuntu/obmeet-bbb-streamer/meeting-streamer/meeting-id-generator/index.js '" + meetingID + "' | tee /dev/null", (err, stdout, stderr) => {
+                    exec("node /home/ubuntu/obmeet-bbb-streamer/meeting-streamer/meeting-id-generator/index.js '" + meetingID  + "' '" + pf + "-streamer' | tee /dev/null", (err, stdout, stderr) => {
                         link = stdout.substring(0, stdout.length - 1)
                         var ll = "node /home/ubuntu/obmeet-bbb-streamer/meeting-streamer/liveRTMP.js '" + link + "' '" + port + "' | tee /dev/null"
                         console.log(ll)
